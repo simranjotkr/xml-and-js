@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form > * {
+            margin: 10px;
+        }
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Form</h1>
+    <form>
+        <label for="email">Your Email:</label>
+        <input id="email" type="email" placeholder="Enter your email" required /> <br />
+        <label for="dateOfVisit">Date of Visit:</label>
+        <input type="date" name="dateOfVisit" id="dateOfVisit" required/><br />
+        <label for="textarea">Your Comment:</label><br />
+        <textarea id="textarea" rows="4" cols="50" required></textarea><br />
+        <input onclick="display()" type="submit" value="Send your Feedback" />
+    </form>
+    <h3 id="submitResult"></h3>
+
+    <script>
+        function display() {
+            document.getElementById('submitResult').innerText = "Your feedback has bee Recorded. Thank You."
+        }
+    </script>
+</body>
+</html>
