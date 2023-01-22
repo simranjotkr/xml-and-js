@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml-stylesheet type="text/css" href="style.css"?>
+<!DOCTYPE menuInfo [
+  <!ELEMENT menuInfo (title,summary,effectiveDate,menu+)>
+  <!ELEMENT title (#PCDATA)>
+  <!ELEMENT summary (#PCDATA)>
+  <!ELEMENT effectiveDate (#PCDATA)>
+  <!ATTLIST effectiveDate type (Date) "Date" >
+  <!ELEMENT menu (category,menuItem+)>
+  <!ELEMENT category (#PCDATA)>
+  <!ELEMENT menuItem (itemName,description,price,indicator*)>
+  <!ELEMENT itemName (originalName,oldName?)>
+  <!ELEMENT description (#PCDATA)>
+  <!ELEMENT price (#PCDATA)>
+  <!ELEMENT indicator (#PCDATA)>
+  <!ELEMENT originalName (#PCDATA)>
+  <!ELEMENT oldName (#PCDATA)>
+]>
+
 <menuInfo>
   <title>Chester's Breakfast Menu</title>
   <summary>
@@ -8,7 +26,7 @@
     up just the way you like them!!
     ]]>
   </summary>
-  <effective Date>03/12/2016</effective Date>
+  <effective type="Date">03/12/2016</effective>
   <menu>
     <category>Traditional Favorites</category>
     <menuItem>
@@ -28,7 +46,7 @@
     </menuItem>
     <menuItem>
       <itemName>
-        <originalName> Fresh Mornin' Sampler </originalname>
+        <originalName> Fresh Mornin' Sampler </originalName>
         <oldName> Mornin' Sampler </oldName>
       </itemName>
       <description>
@@ -48,7 +66,7 @@
     <category>Lite and Quick</category>
     <menuItem>
       <itemName>
-        <name> Oatmeal Breakfast </originalName>
+        <originalName> Oatmeal Breakfast </originalName>
       </itemName>
       <description>
         <![CDATA[
@@ -80,3 +98,4 @@
     </menuItem>
   </menu>
 </menuInfo>
+<!-- Name: Simranjot Kaur || Student Id: N01553861 -->

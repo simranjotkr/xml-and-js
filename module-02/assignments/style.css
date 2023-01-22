@@ -1,0 +1,24 @@
+menuInfo {
+    font-family: sans-serif;
+    padding: 30px;
+}
+
+originalName {
+    font-size: 30px;
+}
+
+category::before {
+    display: block;
+    content: "\a";
+    white-space: pre;
+}
+
+category::after {
+    display: block;
+    content: "\a";
+    white-space: pre;
+}
+
+category {
+    color: brown;
+}
