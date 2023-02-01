@@ -19,34 +19,24 @@ tell processor to process the entire document with this template.
     <html> 
       <body> 
         <h2>Students</h2> 
-				
-        <table border="1"> 
-          <tr bgcolor="#9acd32"> 
-            <th>Roll No</th> 
-            <th>First Name</th> 
-            <th>Last Name</th> 
-            <th>Nick Name</th> 
-            <th>Marks</th> 
-          </tr> 
-				
-          <!-- for-each processing instruction 
-            Looks for each element matching the XPath expression 
-          --> 
-          <xsl:for-each select="class/student"> 
-            <tr> 
-              <td> 
-                <!-- value-of processing instruction 
-                  process the value of the element matching the XPath expression 
-                --> 
-                <xsl:value-of select="@rollno"/> 
-              </td> 
-              <td><xsl:value-of select="firstname"/></td> 
-              <td><xsl:value-of select="lastname"/></td> 
-              <td><xsl:value-of select="nickname"/></td> 
-              <td><xsl:value-of select="marks"/></td> 
-						</tr> 
-          </xsl:for-each> 
-        </table> 
+        <h3>Roll No</h3>
+        <ul>
+        <xsl:for-each select="class/student">
+        <li><xsl:value-of select="@rollno" /></li>
+        </xsl:for-each>
+        </ul>
+        <h3>Name</h3>
+        <ul>
+        <xsl:for-each select="class/student">
+        <li><xsl:value-of select="concat(firstname, ' ' ,lastname)" /></li>
+        </xsl:for-each>
+        </ul>
+        <h3>Marks</h3>
+        <ul>
+        <xsl:for-each select="class/student">
+        <li><xsl:value-of select="marks" /></li>
+        </xsl:for-each>
+        </ul>
       </body> 
     </html> 
   </xsl:template>  

@@ -20,3 +20,5 @@
     <marks>90</marks>
   </student>
 </class>
+
+<!-- concat(//student[1]/firstname/text(), ' ', //student[1]/lastname/text()) -->
