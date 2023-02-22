@@ -17,3 +17,6 @@
 - Refactor your code to use chaining
 - console.log the result
 - Attach screenshot of the output in your terminal
+
+Result Screenshot:
+[! Screenshot of Assignment 7 Result](./Screenshot%202023-02-22%20at%2010.05.20%20AM.png)
