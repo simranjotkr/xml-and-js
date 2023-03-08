@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- To link XSLT and XML documents -->
 <?xml-stylesheet type="text/xsl" href="automotive.xsl"?>
-<automotive-data>
+<!-- To refer to an XML Schema in an XMLdocument -->
+<automotive-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="automotive.xsd">
     <manufacturers-data>
         <id>081df6a8-09fa-40aa-bc00-27ab14a9f216</id>
         <name>Chevrolet</name>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- To refer to a DTD in an XMLdocument -->
+<!DOCTYPE automotive-data SYSTEM "automotive.dtd">
+
 <!-- To link XSLT and XML documents -->
 <?xml-stylesheet type="text/xsl" href="automotive.xsl"?>
+
 <automotive-data>
     <manufacturers-data>
         <id>081df6a8-09fa-40aa-bc00-27ab14a9f216</id>
