@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Customers</h1>
+    <table id="customers" border="1px">
+        <tr>
+            <td>Customer ID</td>
+            <td>Name</td>
+            <td>Address</td>
+            <td>Phone</td>
+            <td>Email</td>
+            <td>Orders</td>
+        </tr>
+    </table>
+    <script>
+        const createCustomerRow = (parseCustomer) => {
+            const content = `
+                <tr>
+                  <td>${parseCustomer.custID}</td> 
+                  <td>${parseCustomer.title} ${parseCustomer.name}</td> 
+                  <td>${parseCustomer.address}</td> 
+                  <td>${parseCustomer.phone}</td>  
+                  <td>${parseCustomer.email}</td>
+                  <td>
+                    <table border="1px">
+                        <tr>
+                            <td>Order ID</td>
+                            <td>Order By</td>
+                            <td>Order Date</td>
+                            <td>Order Items</td>
+                        </tr>
+                        ${getOrdersRow(parseCustomer.orders)}
+                    </table>                    
+                  </td>
+                </tr>
+            `;
+
+            return stringToNode(content);
+        }
+
+        function getOrdersRow(orders) {
+            let rows = ``;
+            orders.forEach(order => {
+                rows += `<tr>
+                        <td>${order.orderId}</td>
+                        <td>${order.orderBy}</td>
+                        <td>${order.orderDate}</td>
+                        <td>
+                            <table border="1px">
+                                <tr>
+                                    <td>Item Price</td>
+                                    <td>Item Qty</td>
+                                </tr>
+                                ${getItemsRow(order.orderItems)}
+                            </table>
+                        </td>
+                    </tr>`;
+            });
+            return rows;
+        }
+
+        function getItemsRow(items) {
+            let rows = ``;
+            items.forEach(item => {
+                rows += `<tr>
+                    <td>${item.itemPrice}</td>
+                    <td>${item.itemQty}</td>
+                </tr>`;
+            });
+            return rows;
+        }
+
+        const parseCustomer = (customer) => {
+            const custID = (customer.getAttribute('custID').length != 0) ? customer.getAttribute('custID') : "";
+            const title = (customer.getElementsByTagName(`name`).length != 0) ? (customer.getElementsByTagName(`name`)[0].getAttribute('title')) : "";
+            const name = (customer.getElementsByTagName(`name`).length != 0) ? (customer.getElementsByTagName(`name`)[0].childNodes[0].nodeValue) : "";
+            const address = (customer.getElementsByTagName(`address`).length != 0) ? customer.getElementsByTagName(`address`)[0].childNodes[0].nodeValue : "";
+            const phone = (customer.getElementsByTagName(`phone`).length != 0) ? customer.getElementsByTagName(`phone`)[0].childNodes[0].nodeValue : "";
+            const email = (customer.getElementsByTagName(`email`).length != 0) ? customer.getElementsByTagName(`email`)[0].childNodes[0].nodeValue : "";
+            const orders = getOrders(customer);
+            return { custID, title, name, address, phone, email, orders };
+        }
+
+        function getOrders(customer) {
+            const orders = customer.getElementsByTagName(`order`);
+            let orderReturn = [];
+            if (orders.length > 0) {
+                for (let i = 0; i < orders.length; i++) {
+                    orderReturn.push({
+                        orderId: orders[i].getAttribute('orderID'),
+                        orderBy: orders[i].getAttribute('orderBy'),
+                        orderDate: orders[i].getElementsByTagName('orderDate')[0].childNodes[0].nodeValue,
+                        orderItems: (() => {
+                            let items = orders[i].getElementsByTagName('item');
+                            let itemsList = [];
+                            for (let i = 0; i < items.length; i++) {
+                                itemsList.push({
+                                    itemPrice: items[i].getElementsByTagName('itemPrice')[0].childNodes[0].nodeValue,
+                                    itemQty: items[i].getElementsByTagName('itemQty')[0].childNodes[0].nodeValue
+                                })
+                            }
+                            return itemsList;
+                        })()
+                    })
+                };
+            }
+            return orderReturn;
+        }
+
+        function stringToNode(content) {
+            const template = document.createElement(`template`);
+            const html = content.trim();
+            template.innerHTML = html;
+            return template.content.firstChild;
+        }
+
+        function displayData(xmlDoc) {
+            const table = document.getElementById(`customers`);
+            const customers = xmlDoc.getElementsByTagName(`customer`);
+            for (let i = 0; i < customers.length; i++) {
+                const customer = customers[i];
+                const parsedCustomer = parseCustomer(customer);
+                const customerElementRow = createCustomerRow(parsedCustomer);
+                table.appendChild(customerElementRow);
+            }
+        }
+
+        const loadData = async () => {
+            const data = await fetch('customers.xml')
+                .then((response) => response.text())
+                .then((domData) => new DOMParser().parseFromString(domData, 'text/xml'));
+            displayData(data);
+        }
+
+        loadData();
+    </script>
+</body>
+
+</html>
