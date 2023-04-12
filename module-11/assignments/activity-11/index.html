@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Spotify App</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="body--h1" style="margin:20px;">Spotify Top Playlists</h1>
+        <form class="submitForm" onsubmit="onSubmit(event)">
+            <label for="input-filter-term">Find genre</label>
+            <input
+              type="text"
+              name="term"
+              id="input-filter-term"
+              placeholder="Enter value"
+            />
+            <button class="filterbtn" type="submit">Apply filters</button>
+            <button onclick="resetForm()" class="resetbtn" type="Reset">Reset</button>
+        </form>    
+    </header>
+    <div id="root"></div>
+    <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+body {
+    font-size: 14px;
+    background-color: #EBECF0;
+    font-family: sans-serif;
+}
+
+
+.body--h1:hover {
+    color: aquamarine;
+    border-radius: 10px;
+    text-shadow: 0px 0px 0px 6px black;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header > form {
+    margin-left: auto;
+    margin-right: 20px;
+}
+ 
+.submitForm {
+    font-size: 1.25em;
+}
+
+.submitForm > input {
+    font-size: inherit;
+    border-radius: 6px;
+    height: 1.75em;
+}
+
+.submitForm > button {
+    font-size: inherit;
+    height: 2em;
+    border-radius: 18px;
+}
+
+.filterbtn {
+    background-color: lightgreen;
+}
+
+.resetbtn {
+    background-color: red;
+}
+
+.category {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    margin: 20px;
+    background: linear-gradient(90deg, white, black);
+    border-radius: 20px;
+}
+
+.category--div {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-category {
+    border-radius: 50%;
+    margin: auto;
+    padding: 15px 10px 10px;
+    width: 10em;
+    height: 10em;
+}
+
+.image-category:hover {
+    filter: drop-shadow(0px 0px 6px black);
+}
+
+
+.category--h4 {
+    font-weight: 300;
+    font-size: 1.25em;
+    margin: auto;
+    padding: 0 0 10px;
+    letter-spacing: 1px;
+}
+
+.playlists > ol {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    padding-left: 0;
+}
+
+.playlists {
+    overflow: hidden;
+}
+
+.playlists > ol > li {
+    margin: 10px;
+}
+
+.playlists > ol > li > a > img {
+    border-radius: 15px;
+}
+
+.playlists > ol::-webkit-scrollbar {
+    width: 0;
+}
+
+
+  .playlists > ol > li > a > img:hover {
+    filter: grayscale() drop-shadow(0 0 6px black);
+}
+
+.tracks {
+    list-style: none;
+    overflow: scroll;
+    height: 50px;
+  }
+  
