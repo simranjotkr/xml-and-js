@@ -43,10 +43,10 @@ const loadData = async (clientId, clientSecret) => {
   )
 }
 
-const renderData = (filterTerm) => {
+const renderData = (filterTerm, value) => {
   let source = _data;
 
-  if (filterTerm) {
+  if (filterTerm && filterTerm != null) {
     console.log(filterTerm);
     const term = filterTerm.toLowerCase();
     source = source.filter(({ name }) => {
@@ -56,6 +56,7 @@ const renderData = (filterTerm) => {
   }
 
   const root = document.getElementById(`root`);
+  if(!value || value == "show") {
   const html = source.reduce((acc, { name, icons: [icon], playlistData }) => {
     const playlists = playlistData.map(({ name, external_urls: { spotify }, images: [image], tracks }) =>
       `<li>
@@ -90,6 +91,26 @@ const renderData = (filterTerm) => {
     }
   }, ``)
   root.innerHTML = html;
+  } else {
+    const html = source.reduce((acc, { name, icons: [icon] }) => {
+        return (
+          acc +
+          `
+                  <article class="category-card">
+                      <div class="category">
+                          <div class="category--div">
+                              <img class="image-category" src="${icon.url}" width="${icon.width}" height="${icon.height}" alt="${name}"/>
+                              <h4 class="category--h4">${name}</h4>
+                          </div>
+                          <div class="playlists">
+                          </div>
+                      </div>
+                  </article>
+              `
+        );
+    }, ``)
+    root.innerHTML = html;
+  }
 }
 
 const getTrackList = (tracks) => {
@@ -134,7 +155,11 @@ loadData(clientId, clientSecret).then(renderData);
 const onSubmit = (event) => {
   event.preventDefault();
   const term = event.target.term.value;
-  renderData(term);
+  renderData(term, null);
+}
+
+const handleChange = (value) => {
+  renderData(null, value);
 }
 
 const resetForm = () => location.reload();

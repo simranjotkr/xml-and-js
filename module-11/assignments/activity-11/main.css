@@ -18,12 +18,11 @@ body {
 }
 
 .header > form {
+    display: flex;
+    align-items: center;
     margin-left: auto;
     margin-right: 20px;
-}
- 
-.submitForm {
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 .submitForm > input {

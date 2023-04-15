@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,32 @@
     <link rel="stylesheet" href="main.css">
     <title>Spotify App</title>
 </head>
+
 <body>
     <header class="header">
         <h1 class="body--h1" style="margin:20px;">Spotify Top Playlists</h1>
         <form class="submitForm" onsubmit="onSubmit(event)">
+            <fieldset>
+                <legend>Show playlists:</legend>
+                <label for="show">Show</label>
+                <input type="radio" name="show-hide" id="show" value="show" onchange="handleChange(value);" checked>
+                <label for="hide">Hide</label>
+                <input type="radio" name="show-hide" id="hide" onchange="handleChange(value);" value="hide">
+            </fieldset>
             <label for="input-filter-term">Find genre</label>
             <input
-              type="text"
-              name="term"
-              id="input-filter-term"
-              placeholder="Enter value"
+                type="text"
+                name="term"
+                id="input-filter-term"
+                placeholder="Enter value"
             />
             <button class="filterbtn" type="submit">Apply filters</button>
             <button onclick="resetForm()" class="resetbtn" type="Reset">Reset</button>
-        </form>    
+        </form>
+        
     </header>
     <div id="root"></div>
     <script src="./app.js"></script>
 </body>
+
 </html>
