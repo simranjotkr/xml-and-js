@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-2</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="root">
+        <div id="form-container">
+            <header><h1>Calculate Carbon Emission For The Trip</h1></header>
+            <form >
+                <div id="form">
+                    <label for="type">Type</label>
+                    <input type="text" id="type" value="vehicle" name="type" disabled><br>
+                    <fieldset>
+                        <legend>Choose the Distance Unit</legend>
+                        <label for="mi">Miles</label>
+                        <input id="mi" value="mi" type="radio" name="du" checked>
+                        <label id="label-km" for="km">Kilometers</label>
+                        <input id="km" value="km" type="radio" name="du"><br>
+                    </fieldset>
+                    <label for="distance">Distance</label>
+                    <input type="text" id="distance" value="" name="distance" placeholder="Enter Distance Travelled"><br>
+                    <label for="vehicle-model-id">Vehicle Model Id</label>
+                    <input type="text" id="vehicle-model-id" value="" name="vehicle-model-id" placeholder="Enter Vehicle Model ID"><br>
+                    <div id="button-div">
+                    <button onclick="calcCarbonEmission(event)" type="submit">Calculate Carbon Emission</button>
+                    <button id="button"><a href="./index.html">Back</a></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="form-result">
+            <h2>Result:</h2>
+            <div id="result-data"></div>
+        </div>
+    </div>
+    <script src="./app.js" type="application/javascript"></script>
+</body>
+</html>

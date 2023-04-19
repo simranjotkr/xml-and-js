@@ -1,0 +1,58 @@
+:root {
+    --light-grey: #EBE6E0;
+    --acid-green: #B7C828;
+    --moon-stone-blue: #6CB1B4;
+    --raisin-black: #140D27;
+}
+
+
+
+body {
+    font-size: 15px;
+    font-family: Calibri;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center; 
+    background-color: var(--acid-green); 
+    height: 50px;
+}
+
+header > div{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    font-size: 1.25em;
+}
+
+select {
+    font-size: 1.25em;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+#table {
+    width: 100%;
+    font-size: 1.25rem;
+}
+
+button {
+    margin-left: 20px;
+    background-color: var(--raisin-black);
+    height: 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    width: 4rem;
+}
+
+button > a {
+   text-decoration: none;
+   color: white;
+}

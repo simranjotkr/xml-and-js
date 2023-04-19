@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-2</title>
+    <link rel="stylesheet" href="./transport-style.css">
+</head>
+<body>
+    <div id="root">
+        <div id="form-container">
+            <header><h1>Calculate Carbon Emission For Transportation</h1></header>
+            <form >
+                <div id="form">
+                    <label for="type">Transportation Type</label>
+
+                    <select name="type" id="type">
+                        <option value="ship">ship</option>
+                        <option value="train">train</option>
+                        <option value="truck">truck</option>
+                        <option value="plane">plane</option>
+                    </select><br>
+
+                    <fieldset>
+                        <legend>Choose the Weight Unit</legend>
+                        <label for="g">grams(g)</label>
+                        <input id="g" value="g" type="radio" name="wu" checked>
+                        <label for="lb">pounds(lb)</label>
+                        <input id="lb" value="lb" type="radio" name="wu">
+                        <label for="kg">kliograms(kg)</label>
+                        <input id="kg" value="kg" type="radio" name="wu"><br>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Choose the Distance Unit</legend>
+                        <label for="mi">Miles</label>
+                        <input id="mi" value="mi" type="radio" name="du" checked>
+                        <label id="label-km" for="km">Kilometers</label>
+                        <input id="km" value="km" type="radio" name="du"><br>
+                    </fieldset>
+                    
+                    <label for="distance">Distance</label>
+                    <input type="text" id="distance" value="" name="distance" placeholder="Enter Distance Travelled"><br>
+                    <label for="weight">Weight</label>
+                    <input type="text" id="weight" value="" name="weight" placeholder="Enter weight of goods"><br>
+                    <div id="button-div">
+                    <button onclick="calcCarbonEmission(event)" type="submit">Calculate Carbon Emission</button>
+                    <button id="button"><a href="./index.html">Back</a></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="form-result">
+            <h2>Result:</h2>
+            <div id="result-data"></div>
+        </div>
+    </div>
+    <script src="./transport.js" type="application/javascript"></script>
+</body>
+</html>

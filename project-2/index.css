@@ -1,0 +1,33 @@
+/* :root {
+    --light-grey: #EBE6E0;
+    --acid-green: #B7C828;
+    --moon-stone-blue: #6CB1B4;
+    --raisin-black: #140D27;
+} */
+
+a {
+    text-decoration: none;
+    color: var(--raisin-black);
+    font-size: 1.25rem;
+}
+
+button {
+    background-color: #B7C828;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+body {
+    font-size: 16px;
+    font-family: Calibri;
+    display: flex;
+    align-items: center;
+    height: 80vh;
+}
+
+ main {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+ }

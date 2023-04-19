@@ -1,0 +1,138 @@
+:root {
+    --light-grey: #EBE6E0;
+    --acid-green: #B7C828;
+    --moon-stone-blue: #6CB1B4;
+    --raisin-black: #140D27;
+}
+
+
+
+body {
+    font-size: 15px;
+    font-family: Calibri;
+    height: 100vh;
+    margin: 0;
+}
+
+#root {
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    height: inherit;
+}
+
+#form-container {
+    grid-area: 1 / 4 / 9 / 10;
+    background-color: var(--light-grey);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    font-size: 1.25rem;
+}
+
+/* header > h1 {
+    margin: 10px;
+} */
+
+#form-container > header {
+    align-self: center;
+}
+
+#form > * {
+    margin: 10px 0;
+}
+
+#label-km {
+    margin-left: 30px;
+}
+
+#km {
+    margin-left: 8px !important;
+}
+
+#type {
+    margin-left: 5% !important;;
+    font-size: 1rem;
+    width: auto; 
+}
+
+#type option {
+    font-size: 1rem; 
+}
+
+
+#form > input {
+    font-size: 1rem;
+    margin-left: 50px;
+    height: 1.25rem;
+    border-radius: 5px;
+    width: 23rem;
+    max-width: 23rem;
+    height: 1.5rem;
+}
+
+
+form {
+   max-width: 80%;
+   margin: 0 50px;
+}
+
+#button-div > button {
+    height: 2rem;
+    background-color: var(--acid-green);
+    border: none;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+#form-result {
+    background-color: var(--moon-stone-blue);
+    grid-area: 9 / 4 / 12 / 10;
+    margin-top: 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: white;
+}
+
+#form-result > h2 {
+    font-size: 1.25rem;
+    margin: 10px 20px;
+}
+
+#result-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.vehicle-desc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.vehicle-desc > p {
+    margin: 0;
+}
+
+#button {
+    margin-left: 20px;
+    background-color: var(--raisin-black) !important;
+    height: 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+}
+
+#button > a {
+   text-decoration: none;
+   color: white;
+}
+
+#button-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
